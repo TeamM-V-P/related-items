@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
-const port = 3004;
 
 require('../database');
 const Game = require('../database/Game');
@@ -73,8 +72,8 @@ server.use('/api/games/:id/together', (req, res) => {
     });
 });
 
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+server.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 })
 
 module.exports = server;
